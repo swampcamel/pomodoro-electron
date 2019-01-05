@@ -16,3 +16,7 @@
 #amount {
   padding-bottom: 10px;
 }
+
+.timer-buttons button {
+  margin: 0px 5px;
+}
