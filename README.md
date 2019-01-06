@@ -22,7 +22,7 @@ That should do it!
 
 ### What it's like:
 
-![Example Image of App](./example.jpg)
+![Example Image of App](./example2.jpg)
 
 ### License
 
