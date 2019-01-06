@@ -1,6 +1,5 @@
 import React from 'react';
 import {ClockModel} from './ClockModel';
-import {moment} from 'moment';
 
 class Clock extends React.Component {
   constructor(props) {

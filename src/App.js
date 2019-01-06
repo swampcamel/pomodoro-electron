@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import {ClockModel} from './ClockModel';
 import Clock from './Clock';
 import './App.css';
-import {moment} from 'moment';
 
 class App extends Component {
   constructor(props) {
