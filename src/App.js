@@ -36,7 +36,7 @@ class App extends Component {
             <audio id="audio" src="alarm.mp3" autostart="false"></audio>
           </div>
           <div>
-            <h3>You selected {this.state.numberOfClocks} clocks.</h3>
+            <h3>You selected {this.state.numberOfClocks.length} clocks.</h3>
           </div>
           {this.state.numberOfClocks.map((clock, index) => <Clock id={index} key={index} colorList={this.colorList}/>)}
         </header>
