@@ -20,6 +20,10 @@ Open another terminal window and navigate to the main folder and run ```npm i```
 
 That should do it!
 
+### What it's like:
+
+![Example Image of App](./example.jpg)
+
 ### License
 
 Generic MIT License.
