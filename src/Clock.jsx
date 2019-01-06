@@ -21,7 +21,8 @@ class Clock extends React.Component {
     newState.timeInSeconds = 1499;
     newState.mins = Math.floor(newState.timeInSeconds / 60);
     newState.seconds = newState.timeInSeconds - newState.mins * 60;
-    this.setState({clock: newState})
+    this.setState({clock: newState});
+    this.time = this.state.clock.timeInSeconds;
   }
 
   createInterval() {
