@@ -10,5 +10,7 @@ export class ClockModel {
     this.isStarted = false;
     this.mins = Math.floor(timeInSeconds / 60);
     this.seconds = timeInSeconds - this.mins * 60;
+    this.intervalHandle = null;
   }
+
 }

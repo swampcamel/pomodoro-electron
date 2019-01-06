@@ -1,50 +1,24 @@
 import React, { Component } from 'react';
 import {ClockModel} from './ClockModel';
+import Clock from './Clock';
 import './App.css';
+import {moment} from 'moment';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.colorList = ["pink", "skyblue", "lightgreen", "yellow", "orange", "magenta", "white", "peachpuff"];
     this.state = {
-      numberOfClocks: 1,
-      clocks: []
+      numberOfClocks: [0]
+
     }
     this.setNumberOfClocks = this.setNumberOfClocks.bind(this);
-    this.generateClocks = this.generateClocks.bind(this);
-    this.runClock = this.runClock.bind(this);
   }
+
 
   setNumberOfClocks(e) {
     let selectValue = parseInt(e.target.value);
-    this.setState({numberOfClocks: selectValue});
-    this.generateClocks(selectValue);
-  }
-
-  generateClocks(numberOfClocks) {
-    let clockArray = [];
-    for (let i = 0; i < numberOfClocks; i++) {
-      let newClock = new ClockModel(i, 1499, "normal", "fadeOut", this.colorList[Math.round(Math.random()*this.colorList.length)]);
-      clockArray.push(newClock);
-    }
-    this.setState({clocks: clockArray});
-  }
-
-  runClock(clockId) {
-    let newClockState = this.state.clocks;
-
-      if (newClockState[clockId].timeInSeconds == 0) {
-        alert("done");
-      } else {
-        newClockState[clockId].timeInSeconds -= 1;
-        newClockState[clockId].mins = Math.floor(newClockState[clockId].timeInSeconds / 60);
-        newClockState[clockId].seconds = newClockState[clockId].timeInSeconds - newClockState[clockId].mins * 60;
-      }
-    this.setState({clocks: newClockState});
-  }
-
-  componentWillMount() {
-    this.generateClocks(this.state.numberOfClocks);
+    this.setState({numberOfClocks: Array(selectValue).fill("ImAcLoCk")});
   }
 
   render() {
@@ -66,22 +40,7 @@ class App extends Component {
           <div>
             <h3>You selected {this.state.numberOfClocks} clocks.</h3>
           </div>
-          {this.state.clocks.map((clock, index) =>
-            <div key={index}>
-              <div className="current-state" style={{color: clock.color}}>{clock.mode} {index + 1}</div>
-              <div className="timer">
-                <span className="minutes">{clock.mins}</span>:
-                <span className="seconds">{clock.seconds}</span>
-              </div>
-              <div className="timer-buttons">
-                <button type="text" onClick={() => this.runClock(index)}>Start</button>
-                <button type="text">Stop</button>
-                <button type="text">Restart</button>
-                <button type="text">Short Break</button>
-                <button type="text">Long Break</button>
-              </div>
-            </div>
-          )}
+          {this.state.numberOfClocks.map((clock, index) => <Clock id={index} key={index} colorList={this.colorList}/>)}
         </header>
       </div>
     );
